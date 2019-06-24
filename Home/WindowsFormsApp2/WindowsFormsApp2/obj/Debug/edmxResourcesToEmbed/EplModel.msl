@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EPLModelStoreContainer" CdmEntityContainer="EplEntities">
+    <EntitySetMapping Name="EPLclubs">
+      <EntityTypeMapping TypeName="EPLModel.EPLclub">
+        <MappingFragment StoreEntitySet="EPLclubs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EPLplayers">
+      <EntityTypeMapping TypeName="EPLModel.EPLplayer">
+        <MappingFragment StoreEntitySet="EPLplayers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="positionId" ColumnName="positionId" />
+          <ScalarProperty Name="clubId" ColumnName="clubId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EPLpositions">
+      <EntityTypeMapping TypeName="EPLModel.EPLposition">
+        <MappingFragment StoreEntitySet="EPLpositions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

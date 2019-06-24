@@ -1,0 +1,32 @@
+C:\Users\samird\source\repos\P110_EF\P110_EF\bin\Debug\P110_EF.exe.config
+C:\Users\samird\source\repos\P110_EF\P110_EF\bin\Debug\P110_EF.exe
+C:\Users\samird\source\repos\P110_EF\P110_EF\bin\Debug\P110_EF.pdb
+C:\Users\samird\source\repos\P110_EF\P110_EF\bin\Debug\EntityFramework.dll
+C:\Users\samird\source\repos\P110_EF\P110_EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\samird\source\repos\P110_EF\P110_EF\bin\Debug\EntityFramework.xml
+C:\Users\samird\source\repos\P110_EF\P110_EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\samird\source\repos\P110_EF\P110_EF\obj\Debug\P110_EF.csprojAssemblyReference.cache
+C:\Users\samird\source\repos\P110_EF\P110_EF\obj\Debug\P110_EF.Form1.resources
+C:\Users\samird\source\repos\P110_EF\P110_EF\obj\Debug\P110_EF.Properties.Resources.resources
+C:\Users\samird\source\repos\P110_EF\P110_EF\obj\Debug\P110_EF.csproj.GenerateResource.cache
+C:\Users\samird\source\repos\P110_EF\P110_EF\obj\Debug\P110_EF.csproj.CoreCompileInputs.cache
+C:\Users\samird\source\repos\P110_EF\P110_EF\obj\Debug\P110_EF.csproj.CopyComplete
+C:\Users\samird\source\repos\P110_EF\P110_EF\obj\Debug\P110_EF.exe
+C:\Users\samird\source\repos\P110_EF\P110_EF\obj\Debug\P110_EF.pdb
+C:\Users\samird\source\repos\P110_EF\P110_EF\obj\Debug\P110_EF.EmployeeCreateForm.resources
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\bin\Debug\P110_EF.exe.config
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\bin\Debug\P110_EF.exe
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\bin\Debug\P110_EF.pdb
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\bin\Debug\EntityFramework.dll
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\bin\Debug\EntityFramework.SqlServer.dll
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\bin\Debug\EntityFramework.xml
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\bin\Debug\EntityFramework.SqlServer.xml
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\obj\Debug\P110_EF.csprojAssemblyReference.cache
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\obj\Debug\P110_EF.EmployeeCreateForm.resources
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\obj\Debug\P110_EF.Form1.resources
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\obj\Debug\P110_EF.Properties.Resources.resources
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\obj\Debug\P110_EF.csproj.GenerateResource.cache
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\obj\Debug\P110_EF.csproj.CoreCompileInputs.cache
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\obj\Debug\P110_EF.csproj.CopyComplete
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\obj\Debug\P110_EF.exe
+D:\Programming\Other\C#\21.06.2019(Entity framework)\P110_EF\P110_EF\obj\Debug\P110_EF.pdb

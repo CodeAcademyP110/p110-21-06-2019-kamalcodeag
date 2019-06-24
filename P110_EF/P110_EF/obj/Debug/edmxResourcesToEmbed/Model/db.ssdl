@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PositionId" Type="int" />
+    <Property Name="StartDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Positions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" />
+    <Property Name="ReportsTo" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Company.dbo.EmployeesReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EmployeesReport">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Fullname" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Position" />
+      <PropertyRef Name="Departament" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="101" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="Position" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ReportsTo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Departament" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Employees__Posit__2B3F6F97">
+    <End Role="Positions" Type="Self.Positions" Multiplicity="0..1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Positions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="PositionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Positions__Depar__276EDEB3">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="Positions" Type="Self.Positions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Positions">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CompanyModelStoreContainer">
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeesReport" EntityType="Self.EmployeesReport" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EmployeesReport].[Id] AS [Id], 
+    [EmployeesReport].[Fullname] AS [Fullname], 
+    [EmployeesReport].[Email] AS [Email], 
+    [EmployeesReport].[Salary] AS [Salary], 
+    [EmployeesReport].[StartDate] AS [StartDate], 
+    [EmployeesReport].[Position] AS [Position], 
+    [EmployeesReport].[ReportsTo] AS [ReportsTo], 
+    [EmployeesReport].[Departament] AS [Departament]
+    FROM [dbo].[EmployeesReport] AS [EmployeesReport]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Employees__Posit__2B3F6F97" Association="Self.FK__Employees__Posit__2B3F6F97">
+      <End Role="Positions" EntitySet="Positions" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Positions__Depar__276EDEB3" Association="Self.FK__Positions__Depar__276EDEB3">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Positions" EntitySet="Positions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

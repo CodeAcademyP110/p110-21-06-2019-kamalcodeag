@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EPLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="EPLclub">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="EPLplayers" Relationship="Self.FK__EPLplayer__clubI__3F466844" FromRole="EPLclubs" ToRole="EPLplayers" />
+  </EntityType>
+  <EntityType Name="EPLplayer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="age" Type="Byte" Nullable="false" />
+    <Property Name="positionId" Type="Int32" />
+    <Property Name="clubId" Type="Int32" />
+    <NavigationProperty Name="EPLclub" Relationship="Self.FK__EPLplayer__clubI__3F466844" FromRole="EPLplayers" ToRole="EPLclubs" />
+    <NavigationProperty Name="EPLposition" Relationship="Self.FK__EPLplayer__posit__3E52440B" FromRole="EPLplayers" ToRole="EPLpositions" />
+  </EntityType>
+  <EntityType Name="EPLposition">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="EPLplayers" Relationship="Self.FK__EPLplayer__posit__3E52440B" FromRole="EPLpositions" ToRole="EPLplayers" />
+  </EntityType>
+  <Association Name="FK__EPLplayer__clubI__3F466844">
+    <End Role="EPLclubs" Type="Self.EPLclub" Multiplicity="0..1" />
+    <End Role="EPLplayers" Type="Self.EPLplayer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EPLclubs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EPLplayers">
+        <PropertyRef Name="clubId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EPLplayer__posit__3E52440B">
+    <End Role="EPLpositions" Type="Self.EPLposition" Multiplicity="0..1" />
+    <End Role="EPLplayers" Type="Self.EPLplayer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EPLpositions">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EPLplayers">
+        <PropertyRef Name="positionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EplEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EPLclubs" EntityType="Self.EPLclub" />
+    <EntitySet Name="EPLplayers" EntityType="Self.EPLplayer" />
+    <EntitySet Name="EPLpositions" EntityType="Self.EPLposition" />
+    <AssociationSet Name="FK__EPLplayer__clubI__3F466844" Association="Self.FK__EPLplayer__clubI__3F466844">
+      <End Role="EPLclubs" EntitySet="EPLclubs" />
+      <End Role="EPLplayers" EntitySet="EPLplayers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EPLplayer__posit__3E52440B" Association="Self.FK__EPLplayer__posit__3E52440B">
+      <End Role="EPLpositions" EntitySet="EPLpositions" />
+      <End Role="EPLplayers" EntitySet="EPLplayers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

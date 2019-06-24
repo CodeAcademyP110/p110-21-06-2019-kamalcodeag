@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EPLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EPLclubs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EPLplayers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="age" Type="tinyint" Nullable="false" />
+    <Property Name="positionId" Type="int" />
+    <Property Name="clubId" Type="int" />
+  </EntityType>
+  <EntityType Name="EPLpositions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__EPLplayer__clubI__3F466844">
+    <End Role="EPLclubs" Type="Self.EPLclubs" Multiplicity="0..1" />
+    <End Role="EPLplayers" Type="Self.EPLplayers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EPLclubs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EPLplayers">
+        <PropertyRef Name="clubId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EPLplayer__posit__3E52440B">
+    <End Role="EPLpositions" Type="Self.EPLpositions" Multiplicity="0..1" />
+    <End Role="EPLplayers" Type="Self.EPLplayers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EPLpositions">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EPLplayers">
+        <PropertyRef Name="positionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EPLModelStoreContainer">
+    <EntitySet Name="EPLclubs" EntityType="Self.EPLclubs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EPLplayers" EntityType="Self.EPLplayers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EPLpositions" EntityType="Self.EPLpositions" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__EPLplayer__clubI__3F466844" Association="Self.FK__EPLplayer__clubI__3F466844">
+      <End Role="EPLclubs" EntitySet="EPLclubs" />
+      <End Role="EPLplayers" EntitySet="EPLplayers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EPLplayer__posit__3E52440B" Association="Self.FK__EPLplayer__posit__3E52440B">
+      <End Role="EPLpositions" EntitySet="EPLpositions" />
+      <End Role="EPLplayers" EntitySet="EPLplayers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
